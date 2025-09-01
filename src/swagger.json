@@ -1,0 +1,201 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "miConsumo API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/categorias": {
+      "get": {
+        "summary": "Lista categorias",
+        "tags": [
+          "categorias"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Categoria": {
+      "post": {
+        "summary": "Actualizar Categoria",
+        "tags": [
+          "Categorias"
+        ],
+        "responses": {
+          "201": {
+            "description": "Categoria creada"
+          }
+        }
+      }
+    },
+    "/api/users": {
+      "get": {
+        "summary": "Lista usuarios",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/{id}": {
+      "get": {
+        "summary": "Obtiene un usuario por ID",
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No encontrado"
+          }
+        }
+      }
+    },
+    "/api/user/:id": {
+      "get": {
+        "summary": "Obtener usuario por ID",
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "summary": "Borrar usuario",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "Usuario borrado"
+          }
+        }
+      }
+    },
+    "/api/user": {
+      "post": {
+        "summary": "Crear usuario",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "201": {
+            "description": "Usuario creado"
+          }
+        }
+      }
+    },
+    "/api/user/filter/nombre/{nombre}": {
+      "get": {
+        "summary": "Filtrar usuario por nombre",
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "nombre",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/user/filter/apellido/{apellido}": {
+      "get": {
+        "summary": "Filtrar usuario por apellido",
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "apellido",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/user/filter/documento/{documento}": {
+      "get": {
+        "summary": "Filtrar usuario por apellido",
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "documento",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {},
+  "tags": [
+    {
+      "name": "Categorias",
+      "description": "Operaciones sobre Categorias"
+    },
+    {
+      "name": "Users",
+      "description": "Operaciones sobre usuarios"
+    }
+  ]
+}
