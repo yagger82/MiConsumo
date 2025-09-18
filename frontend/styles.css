@@ -1,0 +1,56 @@
+
+       
+       @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&family=Permanent+Marker&display=swap');
+        body {
+            background: #f8fafc;
+        }
+        .logo-miconsumo {
+            font-family: 'Permanent Marker', 'Roboto Slab', serif;
+            font-size: 2.8rem;
+            color: #3e2723;
+            letter-spacing: 2px;
+            text-shadow: 2px 3px 0 #e0c097, 0 2px 8px #bca17a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 32px;
+            margin-bottom: 24px;
+            user-select: none;
+        }
+        .logo-icon {
+            font-size: 2.2rem;
+            margin-right: 14px;
+            color: #795548;
+            filter: drop-shadow(1px 2px 0 #e0c097);
+        }
+       body {
+            background: #f8fafc;
+        }
+        .login-card {
+            max-width: 400px;
+            margin: 60px auto;
+            padding: 2rem 2.5rem 2rem 2.5rem;
+            border-radius: 1.2rem;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            background: #fff;
+        }
+        .login-title {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #2d3748;
+        }
+        .input-group-text {
+            background: #e9ecef;
+        }
+        .btn-custom {
+            width: 48%;
+        }
+        #output {
+            font-size: 1.05rem;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        .logo-miconsumo {
+            justify-content: left; /* <-- quita o comenta esta línea */
+        }
+   

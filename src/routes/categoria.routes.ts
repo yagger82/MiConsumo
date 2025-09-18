@@ -1,6 +1,7 @@
 
 import { Router } from 'express';
 import { getCategorias, createCategoria,UpdateCategoria,borrarCategoria, filtrarCategoria,ordenarCategoria,paginarCategoria } from '../controllers/categoria.controller';
+import { verifyToken } from '../middlewares/auth';
 const router = Router();
 
 /**
@@ -19,7 +20,7 @@ const router = Router();
  *       200:
  *         description: OK
  */
-router.get('/categorias', getCategorias);
+router.get('/categorias', verifyToken, getCategorias);
 
 
 /**
@@ -32,7 +33,7 @@ router.get('/categorias', getCategorias);
  *       201:
  *         description: Categoria creada
  */
-router.post('/categorias', createCategoria);
+router.post('/categorias', verifyToken, createCategoria);
 
 /**
  * @swagger
@@ -44,7 +45,7 @@ router.post('/categorias', createCategoria);
  *       201:
  *         description: Categoria creada
  */
-router.put('/categorias/:id', UpdateCategoria);
+router.put('/categorias/:id', verifyToken, UpdateCategoria);
 
 
 /**
@@ -57,7 +58,7 @@ router.put('/categorias/:id', UpdateCategoria);
  *       201:
  *         description: Categoria creada
  */
-router.delete('/categorias/:id', borrarCategoria);
+router.delete('/categorias/:id', verifyToken, borrarCategoria);
 
 //consulta avanzadas
 router.get('/categorias/filter/descripcion/:descripcion', filtrarCategoria);

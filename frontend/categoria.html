@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categorías</title>
+</head>
+<body>
+    <h1>Categorías</h1>
+    <ul id="categoria-list"></ul>
+
+    <script>
+        async function fetchCategorias() {
+            const res = await fetch("http://localhost:3000/api/categorias", {
+                headers: { "Authorization": "Bearer " + localStorage.getItem("token") }
+            });
+            if (res.ok) {
+                const categorias = await res.json();
+                const list = document.getElementById("categoria-list");
+                categorias.forEach(categoria => {
+                    const li = document.createElement("li");
+                    li.textContent = categoria.nombre;
+                    list.appendChild(li);
+                });
+            } else {
+                const errorText = await res.text();
+                document.body.textContent = "Error: " + errorText;
+            }
+        }
+
+        fetchCategorias();
+    </script>
+</body>
+</html>

@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { PrismaClient } from '@prisma/client';
+import  bcrypt  from "bcryptjs"; 
 
 const prisma = new PrismaClient();
 
@@ -19,7 +20,8 @@ res.json(user);
 export const createUser = async (req: Request, res: Response, next: NextFunction) => {
 try {
 const { nombre, apellido, nro_doc, email, direccion,password_hash } = req.body;
-const user = await prisma.usuarios.create({ data: { nombre, apellido, nro_doc, email, direccion, password_hash} }); //sinonimo de insert into
+const hashPassword = await bcrypt.hash(password_hash, 10); //encriptar password
+const user = await prisma.usuarios.create({ data: { nombre, apellido, nro_doc, email, direccion, password_hash: hashPassword} }); //sinonimo de insert into
 res.json(user);
 } catch (error) {
 next(error);
@@ -31,9 +33,10 @@ export const updateUser = async (req: Request, res: Response, next: NextFunction
 try {
 const { id } = req.params;
 const { nombre, apellido, nro_doc, email, direccion, password_hash } = req.body;
+const hashPassword = await bcrypt.hash(password_hash, 10); //encriptar password
 const user = await prisma.usuarios.update({  //sinonimo de update
 where: { id: Number(id) },
-data: { nombre, apellido, nro_doc, email, direccion, password_hash },
+data: { nombre, apellido, nro_doc, email, direccion, password_hash: hashPassword },
 });
 res.json(user);
 } catch (error) {
